@@ -2,4 +2,7 @@
     <string name="app_name">WeatherApp</string>
 
     <string name="loading_text">Haetaan sisältöä...</string>
+
+    <string name="forecast_title">Päivän ennuste tunneittain 12h</string>
+
 </resources>

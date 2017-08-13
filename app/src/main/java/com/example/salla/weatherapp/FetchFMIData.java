@@ -47,6 +47,7 @@ public class FetchFMIData extends AsyncTask<String, Void, Boolean> {
             NodeList nodes = doc.getElementsByTagName("BsWfs:BsWfsElement");
 
             //Read the data for the next 12 hours, the query gives 36 hours total
+            //Find temperature and weather symbol
             for (int i = 0; i < nodes.getLength(); i++) {
                 Element element = (Element) nodes.item(i);
                 NodeList title = element.getElementsByTagName("BsWfs:ParameterName");

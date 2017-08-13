@@ -143,11 +143,12 @@ public class MainActivity extends AppCompatActivity {
                     if (location != null) {
                         mLatitude = location.getLatitude();
                         mLongitude = location.getLongitude();
+
                         Log.d(TAG, "Lat: " + String.valueOf(mLatitude) + " Lon: " + String.valueOf(mLongitude));
 
                         //Location was found, now reverse geocode it to get city
                         try {
-                            new GeocodeCity(MainActivity.this).execute(mLatitude, mLongitude);
+                            new ReverseGeocode(MainActivity.this).execute(mLatitude, mLongitude);
                         } catch (Exception e) {
                             Log.d(TAG, "Coordinate parameters failed");
                         }
@@ -205,7 +206,10 @@ public class MainActivity extends AppCompatActivity {
         textView_type.setText( weather_type_text );
 
 
-        // Forecast view
+        // Forecast view - includes title, time, temperature, weather type
+        TextView textView_forecast_title = (TextView) findViewById(R.id.forecast_title);
+        textView_forecast_title.setText( R.string.forecast_title );
+
         Calendar calendar = Calendar.getInstance();
         int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
         int nextHour = currentHour + 1;
